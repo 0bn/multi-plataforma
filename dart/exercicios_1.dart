@@ -25,7 +25,4 @@ main(){
   //4. Determine o valor final obtido pela seguinte expressão numérica: 2 + 3 * 4 - (2 * 3) + 2^3.
   num valor = 2 + 3 * 4 - (2*3) + pow(2, 3);
   print(valor.toString());
-
-  //5. Converta uma temperatura de 100 graus Fahrenheit para Celsius. (Use a fórmula: C = (F -32) * 5/9).
-
 }

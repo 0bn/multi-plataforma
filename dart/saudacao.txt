@@ -1,0 +1,7 @@
+Pedro
+Maria
+João
+[DiaDaSemana.SEGUNDA, DiaDaSemana.TERCA]
+Não!
+Digite seu nome: 
+Oi, Ana
