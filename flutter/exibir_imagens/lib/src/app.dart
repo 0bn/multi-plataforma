@@ -17,7 +17,7 @@ void obterImagem() async {
     );
   var req = http.Request('get', url);
   req.headers.addAll({'Authorization': 
-  'sEq7ioTJpoNEeuGB0hGgxeCjfRSOcqV79VjwskTPKhYRstHdtT8xYPYj'});
+  'sEq7ioTJpoNEeuGB0hGgxe CjfRSOcqV79VjwskTPKhYRstHdtT8xYPYj'});
   final result = await req.send();
   if(result.statusCode == 200){
     final response = await http.Response.fromStream(result);
