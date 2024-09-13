@@ -17,7 +17,7 @@ void obterImagem() async {
     );
   var req = http.Request('get', url);
   req.headers.addAll({'Authorization': 
-  'opPvMyyDlxtG7XggbTSSu2mbzYyi8rdqRftevXymMFYtOfHzwG8g3T6c'});
+  'sEq7ioTJpoNEeuGB0hGgxeCjfRSOcqV79VjwskTPKhYRstHdtT8xYPYj'});
   final result = await req.send();
   if(result.statusCode == 200){
     final response = await http.Response.fromStream(result);
@@ -50,8 +50,8 @@ Widget build(BuildContext context) {
           title: const Text("Minhas Imagens"),
         ),
         floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
           onPressed: obterImagem,
+          child: const Icon(Icons.add),
         ),
         body: Text('$numeroImagens'),
       ),
@@ -60,6 +60,8 @@ Widget build(BuildContext context) {
 }
 
 class App extends StatefulWidget{
+  const App({super.key});
+
 @override
 State<App> createState(){
   return AppState();
