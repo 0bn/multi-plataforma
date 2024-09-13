@@ -1,51 +1,47 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'widgets/image_list.dart';
 import 'models/image_model.dart';
 import 'package:http/http.dart' as http;
 
-class AppState extends State<App>{
-int numeroImagens = 0;
-
-void obterImagem() async {
-  //uri: uniform resource identifier 
-  //contact: 11966543
-  //https://google.com
-  var url = Uri.https(
-    'api.pexels.com',
-    '/v1/search',
-    {'query': 'people', 'page': '1', 'per_page': '1'}
-    );
-  var req = http.Request('get', url);
-  req.headers.addAll({'Authorization': 
-  'sEq7ioTJpoNEeuGB0hGgxe CjfRSOcqV79VjwskTPKhYRstHdtT8xYPYj'});
-  final result = await req.send();
-  if(result.statusCode == 200){
-    final response = await http.Response.fromStream(result);
-    var respostaJSON = json.decode(response.body);
-    var imagem = ImageModel.fromJSON(respostaJSON);
-    print(imagem);
+class App extends StatefulWidget {
+  @override
+  State<App> createState() {
+    return AppState();
   }
-  else{
-    print('Falhou');
-  }
-  
-  //future que permite voce ter o resultado futuramente, equivalente ao promise (para requesições externas)
-  //then = função callback 
-  // req.send().then((result){
-  //   if(result.statusCode == 200){
-  //     http.Response.fromStream(result).then((response){
-  //       var respostaJSON = json.decode(response.body);
-  //       var imagem = ImageModel.fromJSON(respostaJSON);
-  //       print(imagem);
-  //     });
-  //   }
-  // }); 
 }
 
-@override
-Widget build(BuildContext context) {
-  return  MaterialApp(
-    home: Scaffold(
+class AppState extends State<App> {
+  int numeroImagens = 1;
+  List<ImageModel> imagens = [];
+
+  void obterImagem() async {
+    var url = Uri.https('api.pexels.com', '/v1/search',
+      {'query': 'people', 'page': '$numeroImagens', 'per_page': '1'});
+    var req = http.Request('get', url);
+    req.headers.addAll({
+      'Authorization':
+          'sEq7ioTJpoNEeuGB0hGgxeCjfRSOcqV79VjwskTPKhYRstHdtT8xYPYj'
+    });
+    final result = await req.send();
+    if (result.statusCode == 200) {
+      final response = await http.Response.fromStream(result);
+      var respostaJSON = json.decode(response.body);
+      var imagem = ImageModel.fromJSON(respostaJSON);
+      setState(() {
+        imagens.add(imagem);
+        numeroImagens++;
+      });
+      print(imagem);
+    } else {
+      print('Falhou');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
         appBar: AppBar(
           title: const Text("Minhas Imagens"),
         ),
@@ -53,17 +49,8 @@ Widget build(BuildContext context) {
           onPressed: obterImagem,
           child: const Icon(Icons.add),
         ),
-        body: Text('$numeroImagens'),
+        body: ImageList(imagens),
       ),
     );
-  }
-}
-
-class App extends StatefulWidget{
-  const App({super.key});
-
-@override
-State<App> createState(){
-  return AppState();
   }
 }

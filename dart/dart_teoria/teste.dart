@@ -1,34 +1,27 @@
-void main(){
-    // const mais rapido que o final (otimização), restricoes 
-    // final ele nao pode retribuir, nao é capaz de otoikmizar que em o const mas tem menos restrcioes
-    // var pode variar pode retribuir, var é mais  amplo
+void main() {
+  // const mais rapido que o final (otimização), restricoes
+  // final ele nao pode retribuir, nao é capaz de otoikmizar que em o const mas tem menos restrcioes
+  // var pode variar pode retribuir, var é mais  amplo
 
-
-
-
-    //1. se o valor for conhecido ja no momento da declaracao
-    //2. se o valor fpr conhecido em tempo de compilacao
-    //var, final e const (inferência de tipo (feito pelo compilador))
-    //principio do menor privelgio
-    // final a;
-    // print(a);
-    // print(runtimeType) //erro em tempo de compilação 
-    //final admite em tempo de execução
-    // final a = 2;
-    // a = "abc";
-    //Null null = new Null();
-    //inferência de tipos(feita pelo computador)
-    // //var m = [['abc', 'd']];
-    // var a = Null;
-    // print(a);
-    // print(a.runtimeType);
-    // var nome = 'João';
-    // nome = 1;
-
-
-
+  //1. se o valor for conhecido ja no momento da declaracao
+  //2. se o valor fpr conhecido em tempo de compilacao
+  //var, final e const (inferência de tipo (feito pelo compilador))
+  //principio do menor privelgio
+  // final a;
+  // print(a);
+  // print(runtimeType) //erro em tempo de compilação
+  //final admite em tempo de execução
+  // final a = 2;
+  // a = "abc";
+  //Null null = new Null();
+  //inferência de tipos(feita pelo computador)
+  // //var m = [['abc', 'd']];
+  // var a = Null;
+  // print(a);
+  // print(a.runtimeType);
+  // var nome = 'João';
+  // nome = 1;
 }
-
 
 // void main(){
 //     int a = 3;
@@ -41,7 +34,6 @@ void main(){
 
 // }
 
-
 //estatico, feito pelo computador
 // double d = 2;
 // d.correr();
@@ -52,16 +44,15 @@ void main(){
 
 //gradual, engloba tanto o estatico quanto o dinamico
 
-
 // void main(){
 
 //   // int a = 2;
-//   // ++a;  
+//   // ++a;
 //   // print(a);  //a = 3
-//   // a++; 
+//   // a++;
 //   // print(a); // a = 4
 //   // print(++a); // primeiro vai incrementar e depois printar 5
-//   // print(a++); //primeiro vai printar 5 e depois incrementar 
+//   // print(a++); //primeiro vai printar 5 e depois incrementar
 //   // print(a); //6
 
 //   // double a = 1.2;
@@ -92,7 +83,7 @@ void main(){
 //   // int idade = 22;
 //   // print("Me chamo " + nome);
 //   // print("Tenho " + idade.toString() + " anos");
-  
+
 //   // //interpolação
 //   // print('Me chamo $nome');
 //   // print("No ano que vem vou ter ${idade + 1} anos");
@@ -102,6 +93,5 @@ void main(){
 //   // print(nome.runtimeType);
 //   // String teste = r'Use \n para pular uma linha;';
 //   // print(teste);
-
 
 // }
