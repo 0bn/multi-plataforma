@@ -17,7 +17,7 @@ class AppState extends State<App> {
 
   void obterImagem() async {
     var url = Uri.https('api.pexels.com', '/v1/search',
-      {'query': 'people', 'page': '$numeroImagens', 'per_page': '1'});
+        {'query': 'people', 'page': '$numeroImagens', 'per_page': '1'});
     var req = http.Request('get', url);
     req.headers.addAll({
       'Authorization':

@@ -1,6 +1,6 @@
 class ImageModel {
-  late String? url;
-  late String? alt;
+  late String url;
+  late String alt;
 
   ImageModel(this.url, this.alt);
 
