@@ -5,6 +5,8 @@ import 'models/image_model.dart';
 import 'package:http/http.dart' as http;
 
 class App extends StatefulWidget {
+  const App({super.key});
+
   @override
   State<App> createState() {
     return AppState();
